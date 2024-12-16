@@ -1,246 +1,68 @@
 e = """
-O....#....
-O.OO#....#
-.....##...
-OO.#O....O
-.O.....O#.
-O.#..O.#.#
-..O..#O..O
-.......O..
-#....###..
-#OO..#....
+p=0,4 v=3,-3
+p=6,3 v=-1,-3
+p=10,3 v=-1,2
+p=2,0 v=2,-1
+p=0,0 v=1,3
+p=3,0 v=-2,-2
+p=7,6 v=-1,-3
+p=3,0 v=-1,-2
+p=9,3 v=2,3
+p=7,3 v=-1,2
+p=2,4 v=2,-3
+p=9,5 v=-3,-3
 """
 
-q = """
-...##OOOO...#..#.OO..#O........O.O.#..O........#...O#.O..#O.............O....#....O.O#.#.O......OO.O
-O.......#..O.O.....O..O.OO.O#O..#.#.OO.OO.O.O.....O.#..O....O...O.......O..O#O.O.O.........O#OOO..OO
-..O.OO..#...O#O.....O...##O.O..#...O##OO..#.O..#O#O...#.O.OO..#..#.#...........O..###...OOO##......O
-O####O#....O.O##OO.O...#O...O.O...O#...O...#..#....#...OO.#.#.O#O..O..#O...#...#.....#.O#.O...##....
-#O..O..O..#.###.....O.#....O#...#..##..OO....OO.#.#O#O...O#..#........O.O....#...OO..O......#.......
-O.O....O.#.......#.....O...........O..#.....#.O.....#...O.......O#.#.......O..#.........#......OO.O.
-.O..#.......O.............#..O...##.OO##..O...#.....OO.O.#.....#.O..O..........#O#..##.#.#O#.O....#.
-......O..O#O.##.O...#.##..OO....O#..#.O.##.OO...#..#.....O...#..OO.....OO.O......####..O.......O.#.O
-...O.OO.....OO.#OO..#.....#......O.#....#.#...O....#.O#....O...O..#...##...O.#...#.O.....O#O...O....
-OO#.O..O...O.#......#.....O#.O..O.OO....#......#...O#...#.#..O..O...#.#.O#...OO#....OO#O.......#....
-O.....OO..#.#..#..O.#...........O.O..##.#.O.#.O.O.OO.O...O.O.O.OO##..O.......##.OO....O....OO....#OO
-O..O#.O#.....####.#....#.##.OO..O...OO##....#.....#O.#O..#.O....#.O.#.O..O...##...O.......O.O..OO.#.
-...O.#..O.O.....#..O##.....#OO.O............O......O.#..#.OO#....O.O..O........#.#.#O...O....#..OO#O
-##.#.O##..#.##O....OOOO...#........#..O..OOO....O...O...O..O...O.O..OOO...##...O#O.O.OO.OOOOO#.#..##
-...#..O.O##.O.#O.#..O#.#..O#..#...OO#...OOO.........O.O..O.#..O.....O.#........O....#...O....#..OO.#
-.......#.#...#OO.O#..OO..OO.##.#O.OO.OO.OO.#....O..#O...#.O..O..O#.O.O.O.O...O#......O..O#....#...#.
-....O....O#....OOO.....OO.#O......#.OO..O.#OO........O..O.O..O....OO...##..OO#.......#..OO.#O.O.##.O
-OO.#...O.OO.#O#....##O#O.#....#.O.#.O.#.OO.....#...#.###.#.O..OO.O.O.OO.#.O#O...O.O#..OO...#O...OOO.
-.......#....OO#..##O.#..O.O.O..#.#.#..OO.#..#.................O....OO##.##O..OO.O..#O.#.#..#.....O#O
-..OO...O.O....O.O....O.O....#O.O....OO.........#..........#...#..OO...OO.......#.O...##.#.O.O##...OO
-.OO.O#O.#....OOO..O.O.#..#O...O.O#.#O.O.##..##....#..OO.....#....#OO#.##........OOO.OO#O......#..O.#
-...##.....#.........#.##..O.....#.O.#O.##..#..##O.OO#.....O#.......O.O..O#..O..#.....#....O.........
-O....O....O.#...#...#OO#.O....#O##......O..#O..#..#..O#...O..O..#...OOOO#.OO..............O#....#.OO
-.O.O..OO.##...OOO...O..OO.O....#.#....OO#O#......O#O.....O#.OO...OOOO..#....#..##..........#.O....O.
-..#..O..#.......O#O..OO..O.........OOO..##....O..O..OO.#....O.....#.O.#.O.#.#OO#....#.....##.#O...O.
-#....O.......O.#......OO.OO...O..O......#.O.O.O...#....#.#..#.O....#.#O.OOO..#.O..O.O.#.##........#.
-OO..OO##..#.O..#OOO...O..O.O......O.#.#.O#....O#O#..O#........##.O#....OO..#O#..O..##.........O.#...
-.OOO......O#.OO...........OO#..#.O.O..#...OO#...#.....#........O...O##....OO.....O..OOOO...#........
-O#.O....#.#..O.O..O.#.OOO.O..O......O.OOO..#..O..##..O.O....O.O.OO.##.....#.#O..##O..O......O##..#..
-#...#..O.OO..#.#.#......O.#..O.#.OO.#............#O#....#....O.......O...O....###....O.#.#O...OO#O.O
-O..O..#....O.#.O..#.O.#.#OO#...O.O..#...O.#O......OO.O.O.....O...OO.#O#......#..#.......O#...#..O...
-..O..O.#O.O#.##O..#OOO.O#.O.#....O.##.#..O..O...#......O..#O..OO....#O#..#O#.#OOO.#O.OO......OO#....
-#.....O#O..O..O.OO.#.......O........O.OO.#OO........O...O......O..O.O.......#.#....O#..O..#.....##..
-.....O.......#........OO...OOO#.#.#.#.O..##..O........#O.#.#O.#..#O.....#O....OO.......#......O....O
-....#..#..O.#..#O#O..O....O..#.#....#..##.........O..O.#O.O..OO...O.##....#.O.#.#OOO..O..#.....#..O.
-.#OO......O...#..##.O...#.O..........#.##.O....OO.O#....O.OOO....O..OO...#.#.O#...OO.O#O#O......#.##
-O....O.#....O.#......OO.##..O..#...O.#..#..O....#..##...#....#........OO.......#..O.#.#...#..O......
-.#.#..O..O.#..#.O.#O..#..O....O...OO.#.#...OO.##..##.O..O..O..O.#...O.#OO##O..#.O.....#.##..O....O..
-..##................O#O#....#..#O.O....##.#...O...O.....#.....OO.#.#............OO#....O.#.O.O...O#.
-.#..O.O...#O.O....#O....OO.#..O#...........O#.....##.O..#OO...#...O.OO.........OOOO.O...##.#....O##.
-..O.......OOO...O.#OO.#......O.O......O.....O.OO......O#..#OO..#.O.......O.#.#.....#.O.O#O..O...O.#O
-#............O#..O..O#.....#.O.#.O...O....#O..#...O........##OO..O.OO.OO.....O...###O.O#..#.##....#.
-..#O..#.#...O......O......O....#.##O#.O.#OOO.....O..#.O.....#O..#..#.O.O...O..#.....#....#.......OO#
-#..O..#O..#.O........###....OO.O.O...OOO#..OO.#..O...#..O...O#...O..O.O.O..O.......OO.O#..O..O...O.#
-OO.OO.#OO.........O...#.OO.OO#..OO...#.....#O.O.O..#O..#.....O..##......O###O.......#.##..O.........
-.#..O..O.O..OO.O..OOO..#...#.#..O.....O.....#.#...OO....O..#.OO#..##O#..OO.O...O..O...###.#..O#...O.
-O...O.O................#....#...O#.#.#O#.O..#O..OO.O.OOO...O...O.OO.....#.OO..#.....#.....#.O.....OO
-O...O..##O...####O###....O##O..O#.O.........#..O..O.###......O#..O...O#O...O#...O......O.O#..O.#...#
-O..#.O...O.#..##O.#.....O........O.......OOO....#...#..O..#...##....#.##.O.O..#....O#...O.....#..OOO
-O..#O#...O..O.O#....#...O..O..#....O.O..#.O..#O.......O#.O.........O.#.#..O.....O....#.OO.O........O
-..#.........O..#OO.#O...O..#..O.#.O.O...O####........OO.##.O..#.#..#.#O#.OO..O.#.O..OOO...O..O...O..
-...#.....#.#...O.#.O#...O#..#.O....#.....#......O....#O#..O#O........O#....###OO....#...O##......#O#
-..#.#..O.O#......O.O.OO........#O.#O..#.O#O......O.........O#O...#..#........#.....O............OOO.
-.#O...####O#...#..O#..OO.O.OO..##O.#O...#...O....O.#......O..O...O..O.#..OO..#..#.##OO#.#..O......##
-#..O.#.O..#.O#O#.O.#....O#..#.O.O...OO#O..O#.O.##O.O.OO......O##..###.O#....O..O.#.##.OO.O#OO....#..
-..O#.O....O.....#....OO#.O.....OO.#..OO..O....O..#..#O.#OO...O..O....##.O#.OOO.O#...#O..O..##O..OOO.
-O...#........OO.OO.#O......#O..........##....O.#......O..#O.....O...#...O.O.#....##.....##.O.O.#..##
-...O#..O.O.....OO.O......#.OO.O...O..O###OO....O.......#.O.OO..#O#...#.....#.........#OO......O..OOO
-##...O..#OOO..O.#.O.O#..OOO##..O.....O#..O.OO........OO...O..#..O..###..#....O#.#.#......#..........
-..#.O.OOO..OO#..#....O.#.O..O.#.#.........OO...##......#.O.O#O...O...O.O.#..........##....#.#..O#..#
-#...O#.....O..O........#...#.#.#O.##O#.O.#O..O.......O#...#.#.......##.#..OO...#.#O#..#.O..O.......#
-.##.OO.#.#.#.O.#.........O..O.O#O...OO.....#..#OOO.#...O....O....O...##O.#O....OO.#O........###OO#..
-.##............O.#O.#O.....##..O.#...#.....O.OOO............O..#.#........#...#.O..#..#...#O..#.....
-##O#..##O....#OO..#..#OOO..O.#OO.#..#..#OO#.OO.#.OO..O....OOO...O...O....O...O........#......#...O..
-#.#O.....#.OOO#O#...#.O....#O...#.OO.OO.O..O#.O##.O.O.O.O..O......#..OO...#O..O##.......O...O#O#O..#
-#.....O...........O....#O##.O...O...........#..O...OO.###..OO.........OO..O.#....##.##.##...#.#...O.
-O.#....OO#..O..OO.#O..OO...#O....O.O.OOOO##.#.....O..O........O.#....##O#..#..#.#..O.O....OO...O....
-..#O.#...#.O.#O.O..O.O#.......#.#...O.#......##OO..##O..O.O...#O...........O.#.#..O.O...O......O...#
-.O....#O#.OO#..#.......#.O.....#......#OOO..O#..OO.....O.O...O..O#...OO.......#.O.#.O#........O.O..O
-O....O.O.#.OO........O#..#..O.O...#......#...#...##.#.O#...OO.....#O#...#..#....O.O#.#.#....O..O....
-OO#.#..#OO###.O...#.O.#..#OOO.O....O..OO..O...O.#O#...#O.O.O.O..#O..O...##...O.#O...O....OO..O..#.OO
-OOO....#OO....O..O#O.#O.....O#...O.#..O....O.....#O..........O#.#.#.OO.....O.....O.##.........O....#
-.OO..#....#O..O.......O.##.O.......#.....#.....O.O..........#.O.O.O..#....#..#....O..#......#...O.O.
-..#.#.#....OO.O#O..O#.#...OO..O.#OO..#O.##......#...#.O......#..#O.#O.#..O.#..O.........#.#........O
-...O#.OO#.###.#..O.#...O..O#.O....#..O..O.#O.O........#..O..O..#.#.#OO.OO##O#............#..OOO#.O..
-....#..OO.O...O#.#.##O.O...O#...#.##.#.###...O..O...#...#...#..#.#O...#.........#.#.O.O#O..O..O#O...
-.#.......O#O.#..##.OO#..OO..##...O#O.#.O...##..O..OO..#...O.#..#..........#....O...#....O.#.#...O...
-..O..O..#.O..OO..O.##.O.OO.#.O.O....O.#O#.#.O..#.O...O.#...#O...#..O.......O....#O#..O..#OO...##....
-..O....O..OOO........OO..#..#..O.#...#.##OO...O...OOO..###O#.O.OO#.....O#...........OOO..OOOO.#O..##
-.##.O##.#O.#..O......#.....O...#....O.O..#.......#...O..#.OOOO..#.#.##.#..O.....O...#.#..OO..#O#..O.
-O.......O..O.O...O..#....O.#...OO........#....#O...O..OO....#...O.#O...OO....#.##O......#.O.O....OOO
-O........O##..#.OO.O...#..OO..OO....#.O.O#.#..........OOO.#.O..###.#O..##...........O.#.O....#...O.O
-..O.#OO...O..#...O###..O.#...O........#O.O...#.O#..#O..........O...#O...#...#.O..O....#O###.....#...
-.OO#O###.O##O.O...O#...#..O#.........#..#.#.#OO#...O#O...#....##.#..#.O.OO...O...O.#O.OO.OO.#...O..O
-OO.O.O#...O...#O#O.OOO...O....#OO..OO....O...#..O.O.O....#.O#.......O.#.O..#.O.#O..O..#O.O..O.O##O.#
-.......#.....O.#....O.O.O.#..O#O#....O..O........O...OO...O.O.O.##.O..O.......#..........O#.#O..#...
-.O..OO..O##......##......OOO........O...O..O.O##..#...O.O.#O#.#...#..........#.O...#O.OO...O....##..
-O........#...OO#....O..#OOO.O.#.#.O..O......O..O.O#.....#....O.....####.........#O...#O.####.OO.....
-#..#O...#.#......OOO.OO..O#.O..O....#........O.......#.O........O..........O...O..#.....#O#.O.#..OO.
-O#.....#OO......#..O..#.##OO.O..#.#O.OO....O..O.#....O.......###..#OO...#..O#.............O.........
-O....#..O.O.#O#....O#...###.#O.#........O...#.......#.O.#O.#OO#OO.#O#....#O.....#.O##...O..#.#......
-.##......O....###...........O......#.....O..#.O...#.OO.##O...O.O#....#O.##...#O.O#..O..OO.O...#.O.O.
-.##.#..#.##.O#.#.....##...#.O..#..##...O..O..#.#.O...#O..#...O#..O.#...O..#..#.O#.O#.O.##.O.#.#..#.O
-.O..O....O...#O..OO..##O.O...##..#....#.....OO.O.O.####O..OO.......#...#....OO...O..#O.#.#......#O..
-O...#..O.....#..#......##O#O#.O#OO...O#..O.#.OO.O#.O#O..#.O#.#......OO...O.....O....OO.OOO.#....O#..
-#..##..........O...#....#.....#OO......O#####.....O.....O##O..O#O..O...O.O......OOO..OO......O.O..#.
-...O#...OO#......OO.O....#..O..#........O.O......#O..#.....O............O.....O##.OO..O..#.O.#......
-..OO...O.#..O..O..........##O.OOO.....O..O.#...#.#..........#..#O...O.O.#..#.#.O.O...O..##..#.OO....
-O.............O.####O...O...#.O...##.O#.O.O..OOO..OO..#...#....#.O..O##...#..##...O..#..O..###.#.#.O
-...O.O.....O.....O.....#.O.O..OO...O..O....OO##.....#.O.....#.#.#...O#.....#OO....O..........#..#.O.
-"""
+with open("14.txt", "r") as f:
+    q = f.read()
 
-import pprint
+from pprint import pprint
 import numpy as np
 import copy
 import re
 import math
 
-def parse_line(x: str):
-    x = x.split(":")[1].strip().split(" ")
-    x = "".join(x)
-    return [int(x)]
+def parse_line(x: str) -> tuple[tuple]:
+    p, v = x.split(" ")
+    p, v = p.split("=")[1], v.split("=")[1]
+    p = p.split(",")
+    v = v.split(",")
+    return (int(p[1]), int(p[0])), (int(v[1]), int(v[0]))
 
-def parse_input(x: str):
-    x = x.strip("\n").splitlines()
-    print(x)
-    return parse_line(x[0]), parse_line(x[1])
 
-def f(x):
-    x = x.strip("\n").splitlines()
-    for i in range(len(x)):
-        x[i] = list(x[i])
-    x = np.array(x)
-    x = x.transpose()
+def f(x: str, rows: int, cols: int, seconds: int):
+    x = x.strip().splitlines()
+    final_locs = []
 
-    sum = 0
-    max = len(x[0])
-    # saw_rock = False
     for line in x:
-        line = list(line)
-        # print("->", line)
-        if '#' not in line:
-            first_rock = len(line)
-        else:
-            first_rock = line.index("#")
-        subtract = 0
-        orig_line = line
-        while "O" in line:
-            check_line = line[:first_rock]
-            rocks = check_line.count("O")
-            for rock in range(rocks):
-                sum += max - rock - subtract
-            line = line[first_rock+1:]
-            subtract += first_rock + 1
-            if '#' not in line:
-                first_rock = len(line)
-            else:
-                first_rock = line.index("#")
-            # print(check_line, line, sum, max, first_rock)
-    return sum
+        p, v = parse_line(line)
+        final_locs.append(((p[0] + v[0] * seconds) % rows, (p[1] + v[1] * seconds) % cols))
 
-def calc_load_north(x):
-    sum = 0
-    max = len(x[0])
-    # saw_rock = False
-    for line in x:
-        # print(line, sum)
-        line = list(line)
-        start = 0
-        rest = line
-        while "O" in rest:
-            add = rest.index("O")
-            sum += max - (add + start)
-            rest = rest[add+1:]
-            start += add+1
-    return sum
+    quads = [0] * 4
+    half_row = rows // 2
+    half_col = cols // 2
+    # print(half_row, half_col)
+    for pos in final_locs:
+        row, col = pos
+        if row < half_row and col < half_col:
+            quads[0] += 1
+        elif row > half_row and col < half_col:
+            quads[1] += 1
+        elif row < half_row and col > half_col:
+            quads[2] += 1
+        elif row > half_row and col > half_col:
+            quads[3] += 1
 
-def roll(x):
-    ret = []
-    for line in x:
-        line = list(line)
-        orig_len = len(line)
-        
-        first_rock = None
-        rest = line
-        start = 0
-        while first_rock != len(line):
-            if "#" in rest:
-                first_rock = rest.index("#") + start
-            else:
-                first_rock = len(line)
+    # print(sorted(final_locs))
+    # print(quads)
+    prod = 1
+    for quad in quads:
+        prod *= quad
 
-            temp = line[start:first_rock]
-            rest = line[first_rock+1:]
-            # print("first rock", first_rock, "temp", temp, "rest", rest, "line", line)
-            num_O = temp.count("O")
-            num_dot = temp.count(".")
-            # print("before", line, "start", start, "first_rock:",first_rock)
-            line[start:first_rock] = ["O"] * num_O + ["."] * num_dot
-            # print("after:", line)
-            start = first_rock + 1
-            assert len(line) == orig_len
-        ret.append(line)
-    return np.array(ret)
+    return prod
 
+# print(f(e, 7, 11, 1))
+print(f(e, 7, 11, 100))
+print(f(q, 103, 101, 100))
 
-def f2(x):
-    x = x.strip("\n").splitlines()
-    for i in range(len(x)):
-        x[i] = list(x[i])
-    x = np.array(x)
-    x = x.transpose()
-    prev = 0
-    prev_north = None
-    seen = []
-    indexes = []
-    continuous = 0
-    for i in range(1000000000):
-        x = roll(x)
-        # print("north\n", x)
-        x = np.transpose(roll(np.transpose(x)))
-        # print("west\n", x)
-        x = np.fliplr(roll(np.fliplr(x)))
-        # print("south\n", x)
-        x = np.transpose(np.fliplr((roll(np.fliplr(np.transpose(x))))))
-        # print("east\n", x)
-        curr = calc_load_north(x)
-        # print("prev:", prev, "curr:", curr)
-        if curr in seen:
-            continuous += 1
-        else:
-            continuous = 0
-        
-        seen.append(curr)
-        indexes.append(i)
-        if continuous == 100:
-            return seen
-        prev_north = x
-    return prev
-
-print(f2(e))
-print(f2(q))
+# Part 1
