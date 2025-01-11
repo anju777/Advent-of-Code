@@ -4,77 +4,89 @@ BBCD
 BBCC
 EEEC
 '''
+# 140
+
+e2 = """
+OOOOO
+OXOXO
+OOOOO
+OXOXO
+OOOOO
+"""
+# 772
+
+e3 = """
+RRRRIICCFF
+RRRRIICCCF
+VVRRRCCFFF
+VVRCCCJFFF
+VVVVCJJCFE
+VVIVCCJJEE
+VVIIICJJEE
+MIIIIIJJEE
+MIIISIJEEE
+MMMISSJEEE
+"""
+# 1930
+
+import numpy as np
+
+def split_zones(x: str):
+    x = 0
+
+def get_uniques(x: str) -> set:
+    ret_dict = dict()
+    for line in x.strip().splitlines():
+        listed = list(line)
+        uniques, counts = np.unique(np.array(listed), return_counts=True)
+        for unique, count in zip(uniques, counts):
+            if unique not in ret_dict:
+                ret_dict[unique] = int(count)
+            else:
+                ret_dict[unique] += int(count)
+
+    return ret_dict
 
 
-
-import pprint
-import copy
-import re
-import math
-
-def parse_line(x: str):
-    x = x.split(":")[1].strip().split(" ")
-    x = "".join(x)
-    return [int(x)]
-
-def parse_input(x: str):
-    x = x.strip("\n").splitlines()
-    print(x)
-    return parse_line(x[0]), parse_line(x[1])
-
-pattern = re.compile(r"#+")
-patternh = re.compile(r"([.]+|^)#+([.]+|$)")
-patternc = re.compile(r"[#\?]+")
-patternq = re.compile(r"\?+")
-
-def f(x):
-    x = x.strip("\n").splitlines()
-    sum = 0
-    def try_this(inputstr, combo):
-        if "?" not in inputstr:
-            hashes = pattern.findall(inputstr)
-            for i in range(len(hashes)):
-                hashes[i] = len(hashes[i])
-            # print("Try_this", hashes, combo)
-            # if hashes == combo:
-            #     print(inputstr, combo)
-            return int(hashes == combo)
-
-        return try_this(inputstr.replace("?", "#", 1), combo) + try_this(inputstr.replace("?", ".", 1), combo)
-
-    for line in x:
-        layout, combo = line.split(" ")
-        combo = list(map(int, combo.split(",")))
-        hashes = patternh.findall(layout)
-        clusters = patternc.findall(layout)
-        questions = patternq.findall(layout)
-
-        print("before", layout, hashes, combo)
-        for hash in hashes:
-            if hash.count("#") in combo:
-                combo.remove(hash.count("#"))
-                start, end = patternh.search(layout).span()
-
-                layout = layout[:start] + "." + layout[end:]
-        print(layout, combo)
-
-        hashes = pattern.findall(layout)
-        clusters = patternc.findall(layout)
-        questions = patternq.findall(layout)
-
-        curr = try_this(layout.replace("?", "#", 1), combo) + try_this(layout.replace("?", ".", 1), combo)
-        sum += curr
-        # print(line, "->", curr)
-
-    return sum
-
-    # return product
+def get_perimeter(
+    x: list[list],
+    row: int,
+    col: int,
+    num_row: int,
+    num_col: int,
+    seen: set,
+    perimeters: dict[str, list[int]]
+) -> set[tuple[int, int]]
 
 
+def get_perimeters(x: str, areas: dict[str, int]):
+    seen = set()
+    x = x.strip().splitlines()
+    x = [list(line) for line in x]
 
-# def f2(x):""
-#     x = x.strip("\n").splitlines()
-#     return len(scratch_cards) + len(x_array)
+    perimeters = {key: [] for key in areas.keys()}
+
+    num_row = len(x)
+    num_col = len(x[0])
+    for row in range(num_row):
+        for col in range(num_col):
+            if (row, col) not in seen:
+                seen = get_perimeter(x, row, col, num_row, num_col, seen, perimeters)
+
+    return perimeters
+
+
+def f(x: str):
+    areas = get_uniques(x)
+    perimeters = get_perimeters(x, areas)
+    price = 0
+
+    for area, perimeter_list in zip(areas, perimeters):
+        for perimeter in perimeter_list:
+            price += area * p
+
+    return price
 
 print(f(e))
-#print(f(q))
+print(f(e2))
+print(f(e3))
