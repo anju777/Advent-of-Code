@@ -29,6 +29,9 @@ MMMISSJEEE
 """
 # 1930
 
+with open("12.txt", "r") as f:
+    q = f.read()
+
 import numpy as np
 
 def split_zones(x: str):
@@ -55,8 +58,35 @@ def get_perimeter(
     num_row: int,
     num_col: int,
     seen: set,
-    perimeters: dict[str, list[int]]
-) -> set[tuple[int, int]]
+) -> int:
+    perimeter = 0
+    area = 1
+
+    if (row, col) in seen:
+        return 0, 0
+
+    seen.add((row, col))
+    curr_cell = x[row][col]
+
+    for adj_row, adj_col in (
+        (row - 1, col),
+        (row + 1, col),
+        (row, col - 1),
+        (row, col + 1)
+    ):
+        if (0 <= adj_row < num_row) and (0 <= adj_col < num_col):
+            if (x[adj_row][adj_col] == curr_cell):
+                p, a = get_perimeter(
+                    x, adj_row, adj_col, num_row, num_col, seen
+                )
+                perimeter += p
+                area += a
+            else:
+                perimeter += 1
+        else:
+            perimeter += 1
+
+    return perimeter, area
 
 
 def get_perimeters(x: str, areas: dict[str, int]):
@@ -71,19 +101,22 @@ def get_perimeters(x: str, areas: dict[str, int]):
     for row in range(num_row):
         for col in range(num_col):
             if (row, col) not in seen:
-                seen = get_perimeter(x, row, col, num_row, num_col, seen, perimeters)
+                perimeter, area = get_perimeter(x, row, col, num_row, num_col, seen)
+                curr_cell = x[row][col]
+                perimeters[curr_cell].append((perimeter, area))
 
     return perimeters
 
 
 def f(x: str):
-    areas = get_uniques(x)
-    perimeters = get_perimeters(x, areas)
+    uniques = get_uniques(x)
+    perimeters = get_perimeters(x, uniques)
     price = 0
 
-    for area, perimeter_list in zip(areas, perimeters):
-        for perimeter in perimeter_list:
-            price += area * p
+    print(perimeters)
+    for perimeter_list in perimeters.values():
+        for perimeter, area in perimeter_list:
+            price += area * perimeter
 
     return price
 
